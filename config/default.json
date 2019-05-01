@@ -1,3 +1,4 @@
 {
-	"mongoURI": "mongodb+srv://Dok123:Dok123@dokcluster-mexb6.mongodb.net/test?retryWrites=true"
+	"mongoURI": "mongodb+srv://Dok123:Dok123@dokcluster-mexb6.mongodb.net/test?retryWrites=true",
+	"jwtSecret": "preventiva121"
 }
