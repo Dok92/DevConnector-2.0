@@ -1,4 +1,6 @@
 {
 	"mongoURI": "mongodb+srv://Dok123:Dok123@dokcluster-mexb6.mongodb.net/test?retryWrites=true",
-	"jwtSecret": "preventiva121"
+	"jwtSecret": "preventiva121",
+	"githubClientId": "fe81f1bd30982a7650f5",
+	"githubSecret": "7f2df212d25f4046d9333ec3134f6b768f386c38"
 }
