@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors')
+
 
 const app = express();
 
@@ -8,6 +10,13 @@ connectDB();
 
 // Middleware
 app.use(express.json({ extended: false }));
+const corsOptions = {
+    // optionsSuccessStatus: 200
+    allowedHeaders: 'Content-Type, x-auth-token, Authorization',
+    maxAge: 234234234,
+    credentials: true,
+}
+app.use(cors(corsOptions))
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
