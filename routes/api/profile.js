@@ -14,7 +14,7 @@ const User = require('../../models/User');
 // @access   Private
 router.get('/me', auth, async (req, res) => {
 	try {
-		const profile = await Profile.findOne({ user: req.user.id }).populate('user', [ 'name', 'avatar' ]);
+		const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
 
 		if (!profile) {
 			return res.status(400).json({ msg: 'There is no profile for this user' });
@@ -34,7 +34,7 @@ router.post(
 	'/',
 	[
 		auth,
-		[ check('status', 'Status is required').not().isEmpty(), check('skills', 'Skills is required').not().isEmpty() ]
+		[check('status', 'Status is required').not().isEmpty(), check('skills', 'Skills is required').not().isEmpty()]
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -77,7 +77,7 @@ router.post(
 // @access   Public
 router.get('/', async (req, res) => {
 	try {
-		const profiles = await Profile.find().populate('user', [ 'name', 'avatar' ]);
+		const profiles = await Profile.find().populate('user', ['name', 'avatar']);
 		res.json(profiles);
 	} catch (err) {
 		console.error(err.message);
@@ -90,7 +90,7 @@ router.get('/', async (req, res) => {
 // @access   Public
 router.get('/user/:user_id', async (req, res) => {
 	try {
-		const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', [ 'name', 'avatar' ]);
+		const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', ['name', 'avatar']);
 		if (!profile) {
 			return res.status(400).json({ msg: 'Profile not found' });
 		}
@@ -252,8 +252,8 @@ router.get('/github/:username', (req, res) => {
 		const options = {
 			uri: `https://api.github.com/users/${req.params
 				.username}/repos?per_page=5&sort=created:asc&client_id=${config.get(
-				'githubClientId'
-			)}&client_secret=${config.get('githubSecret')}`,
+					'githubClientId'
+				)}&client_secret=${config.get('githubSecret')}`,
 			method: 'GET',
 			headers: { 'user-agent': 'node.js' }
 		};
