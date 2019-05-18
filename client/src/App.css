@@ -288,6 +288,14 @@ button {
 	color: #0077b5;
 }
 
+.ExpAndEdyTable {
+}
+
+.table {
+	/* position: absolute; */
+	width: 100%;
+}
+
 .table th,
 .table td {
 	padding: 1rem;
