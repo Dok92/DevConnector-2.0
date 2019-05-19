@@ -12,12 +12,13 @@ connectDB();
 // Middleware
 app.use(express.json({ extended: false }));
 const corsOptions = {
-    // optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
     allowedHeaders: 'Content-Type, x-auth-token, Authorization',
     maxAge: 234234234,
     credentials: true,
 }
 app.use(cors(corsOptions))
+app.options('*', cors())
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
